@@ -1,0 +1,29 @@
+<div *ngIf="!pageloading">
+    <div *ngIf="userfound">
+        <mat-card>
+            <form #ng="ngForm" (ngSubmit)="updateprofile(ng)">
+                <mat-form-field>
+                    <input matInput type="email" readonly placeholder="email" name="email" [(ngModel)]="email" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" [readonly]="readonlyenabled" placeholder="name" name="name" [(ngModel)]="name" required>
+                </mat-form-field>
+                <div class="text-center">
+                    <button mat-stroked-button color="primary">Update Profile</button>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+    <div *ngIf="!userfound">
+    
+        <div class="text-center">
+            
+            <h4 class="display-4">No User Found</h4>
+        </div>
+    
+    </div>
+</div>
+<div *ngIf="pageloading" class="text-center">
+    <h4 class="display-4">Loading..</h4>
+
+</div>
